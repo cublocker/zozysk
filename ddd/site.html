@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КИБЕРРОЗЫСК: ПАНЬКИН Д. | СТАТУС: В БЕГАХ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ГЛОБАЛЬНЫЕ СТИЛИ - КИБЕРПАНК */
+        :root {
+            --neon-red: #ff073a;
+            --neon-blue: #00f3ff;
+            --neon-yellow: #ffe600;
+            --neon-green: #39ff14;
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --text: #ffffff;
+            --text-dim: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 500;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(39, 5, 10, 0.4) 0%, transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(5, 39, 39, 0.4) 0%, transparent 30%),
+                repeating-linear-gradient(45deg, rgba(20, 20, 20, 0.1) 0px, rgba(20, 20, 20, 0.1) 1px, transparent 1px, transparent 11px);
+            overflow-x: hidden;
+        }
+
+        .glitch-wrapper {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -999;
+            opacity: 0.03;
+            filter: blur(5px);
+            overflow: hidden;
+        }
+
+        .glitch-text {
+            font-family: 'Orbitron', monospace;
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--neon-red);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: glitch-skew 7s infinite alternate-reverse;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        @keyframes glitch-skew {
+            0% { transform: translate(-50%, -50%) skew(0deg); opacity: 0.5; }
+            20% { transform: translate(-50%, -50%) skew(-3deg); opacity: 0.7; }
+            40% { transform: translate(-50%, -50%) skew(5deg); opacity: 0.4; }
+            60% { transform: translate(-50%, -50%) skew(0deg); opacity: 0.8; }
+            80% { transform: translate(-50%, -50%) skew(2deg); opacity: 0.6; }
+            100% { transform: translate(-50%, -50%) skew(-1deg); opacity: 0.5; }
+        }
+
+        /* КОНТЕЙНЕР */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: linear-gradient(145deg, rgba(20, 20, 20, 0.95), rgba(10, 10, 10, 0.98));
+            border: 1px solid rgba(255, 7, 58, 0.3);
+            padding: 2.5rem;
+            border-radius: 4px;
+            box-shadow: 
+                0 0 40px rgba(255, 7, 58, 0.2),
+                0 0 80px rgba(0, 243, 255, 0.1) inset;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-red), transparent);
+            animation: scanline 3s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        /* ЗАГОЛОВОК */
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--neon-red);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 
+                0 0 10px var(--neon-red),
+                0 0 20px var(--neon-red),
+                0 0 40px var(--neon-red);
+            animation: text-flicker 5s linear infinite alternate;
+        }
+
+        @keyframes text-flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 10px var(--neon-red),
+                    0 0 20px var(--neon-red),
+                    0 0 40px var(--neon-red);
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: 0.9;
+            }
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: var(--neon-blue);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* НАГРАДА */
+        .reward {
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--neon-yellow);
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(to right, rgba(255, 230, 0, 0.1), rgba(255, 230, 0, 0.05));
+            border: 1px solid var(--neon-yellow);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            animation: pulse-gold 2s ease-in-out infinite alternate, flicker 4s linear infinite;
+        }
+
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 15px var(--neon-yellow); }
+            100% { box-shadow: 0 0 40px var(--neon-yellow), 0 0 80px var(--neon-yellow); }
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.95; }
+        }
+
+        .reward::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+
+        /* ФОТО */
+        .photo-container {
+            width: 320px;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 
+                0 0 20px var(--neon-blue),
+                0 0 40px rgba(0, 243, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+            animation: photo-flicker 8s infinite;
+        }
+
+        @keyframes photo-flicker {
+            0%, 100% { border-color: var(--neon-blue); box-shadow: 0 0 20px var(--neon-blue), 0 0 40px rgba(0, 243, 255, 0.2); }
+            50% { border-color: var(--neon-red); box-shadow: 0 0 20px var(--neon-red), 0 0 40px rgba(255, 7, 58, 0.2); }
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: sepia(0.3) contrast(1.1);
+        }
+
+        /* ДЕТАЛИ */
+        .details {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(15, 15, 15, 0.7);
+            border-left: 3px solid var(--neon-green);
+        }
+
+        .details p, .details li {
+            margin-bottom: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .details strong {
+            color: var(--neon-green);
+            font-weight: 700;
+        }
+
+        .details ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .details li::before {
+            content: "■";
+            color: var(--neon-green);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* КОНТАКТЫ */
+        .contact {
+            background: rgba(255, 7, 58, 0.1);
+            padding: 2rem;
+            border-radius: 4px;
+            margin-top: 2.5rem;
+            text-align: center;
+            font-weight: 700;
+            border: 1px solid var(--neon-red);
+            position: relative;
+        }
+
+        .contact p {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-info {
+            font-family: 'Orbitron', monospace;
+            color: var(--neon-red);
+            text-shadow: 0 0 10px var(--neon-red);
+            letter-spacing: 1px;
+            font-size: 1.4rem;
+            margin: 0.5rem 0;
+        }
+
+        /* ПРЕДУПРЕЖДЕНИЕ */
+        .warning {
+            font-style: italic;
+            color: var(--neon-blue);
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 243, 255, 0.3);
+            padding-top: 1.5rem;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        /* ФУТЕР */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 7, 58, 0.3);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        /* АДАПТИВ */
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .reward {
+                font-size: 2rem;
+            }
+            .photo-container {
+                width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glitch-wrapper">
+        <div class="glitch-text">WANTED</div>
+    </div>
+
+    <div class="container">
+        <h1>КИБЕРРОЗЫСК</h1>
+        <p class="subtitle">РАЗЫСКИВАЕТСЯ ОПАСНЫЙ ПРЕСТУПНИК. ПРЕСТУПЛЕНИЕ: КРАЖА СТАКАНА</p>
+
+        <div class="reward">НАГРАДА: 10.000.000 ₽</div>
+
+        <div class="photo-container">
+            <img src="photo_2025-09-05_20-10-35.jpg" alt="Фото Панькина Дмитрия">
+        </div>
+
+        <div class="details">
+            <p><strong>ФИО:</strong> Панькин Дмитрий (известный как "Червяк")</p>
+            <p><strong>ПРИМЕТЫ:</strong></p>
+            <ul>
+                <li>На вид 13-14 лет</li>
+                <li>Присутствует хитрющая улыбка</li>
+                <li>Может неуверенно рассказывать, где был в последнее время</li>
+                <li>Постоянно оглядывается по сторонам</li>
+                <li>Может напоминать чикатило</li>
+            </ul>
+            <p><strong>ПОДРОБНОСТИ ПРЕСТУПЛЕНИЯ:</strong></p>
+            <p>В середине дня, прикрываясь дружеской беседой, подозреваемый похитил ценный стакан с базы в режиме Steal a Brainrot (укради брейнрот) у своего непосредственного руководителя — для него известного как <strong>Мой повелитель</strong>. Похищение было совершено нагло и цинично, в условиях крайнего доверия со стороны потерпевшего.</p>
+            <p>Похищенный стакан представляет не только материальную, но и огромную <strong>сентиментальную ценность</strong> и является ключевым элементом продуктивности всей базы.</p>
+            <p><strong>ОСОБЫЕ ПРИМЕТЫ ПРЕСТУПНИКА:</strong> после кражи скорее всего хвастается своим поступком в узком кругу "своих".</p>
+        </div>
+
+        <div class="contact">
+            <p>ЛЮБАЯ ИНФОРМАЦИЯ О МЕСТОНАХОЖДЕНИИ ПРЕСТУПНИКА!</p>
+            <p class="contact-info">ЗВОНИТЕ: 8-800-ХВАТИТ-ВОРОВАТЬ-СТАКАНЫ</p>
+            <p class="contact-info">ИЛИ НАПИШИТЕ НА: POSHELVPIZDY.GMENU.COM</p>
+        </div>
+
+        <p class="warning">* Вся информация строго конфиденциальна. Награда будет выплачена в полном объеме после задержания и возврата похищенного. Будьте бдительны! Преступник может быть опасен своей наглостью.</p>
+    </div>
+
+    <footer>
+        Дмитрий, лучше верните уже стакан и не будете наказаны по уголовной статье.
+    </footer>
+</body>
+</html>
